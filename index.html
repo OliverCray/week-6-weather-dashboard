@@ -25,6 +25,34 @@
             <div class="search-history" id="recent-searches"></div>
         </aside>
 
+        <!-- Main section -->
+        <section>
+            <!-- Current weather information-->
+            <div id="weather">
+                <div class="weather-img">
+                    <div class="weather-city" id="city-name">Search for a city first</div>
+                    <img src="assets/images/cloudy.png" alt="">
+                </div>
+                <div class="weather-current">
+                    <div class="temperature">
+                        <p>Temperature: <span id="val_temperature"></span></p>     
+                    </div>
+                    <div class="wind-speed">
+                        <p>Wind Speed: <span id="val_wind-speed"></span></p>
+                    </div>
+                    <div class="humidity">
+                        <p>Humidity: <span id="val_humidity"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 day forecast -->
+            <div id="weather-forecast">
+                <h2>5-Day Forecast</h2>
+                <div id="days"></div>
+            </div>
+        </section>
+
     </main>
     
 </body>
