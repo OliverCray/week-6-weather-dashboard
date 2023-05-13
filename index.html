@@ -9,6 +9,23 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <main>
+        <!-- Search bar and recent searches -->
+        <aside>
+            <div class="search">
+                <input type="text" id="city" placeholder="Enter the name of a city">
+                <button type="submit" id="searchBtn">Search</button>
+                <div id="error-message"></div>
+            </div>
+            <hr />
+            <div class="search-history" id="recent-searches"></div>
+        </aside>
+
+    </main>
     
 </body>
 <script src="./assets/js/script.js"></script>
