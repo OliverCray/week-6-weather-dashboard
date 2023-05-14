@@ -26,7 +26,7 @@ function displaySearchHistory() {
 
 function init() {
     // Get stored search history from localStorage
-    var storedHistory = JSON.parse(localStorage.getItem("searchHistory"));
+    var storedHistory = JSON.parse(localStorage.getItem('searchHistory'));
   
     // If searches were retrieved from localStorage, update the search history array to it
     if (storedHistory !== null) {
@@ -196,6 +196,13 @@ function displayCity(weatherData) {
 // Event handler for search button, performs onSearch when clicked
 searchButton.addEventListener('click', onSearch)
 
+recentSearches.addEventListener('click', function(e) {
+    var element = e.target
 
+    if (element.matches("li") === true) {
+        console.log(element.innerHTML)
+        lookupCity(element.innerHTML)
+    }
+})
 
 init()
