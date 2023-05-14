@@ -20,15 +20,18 @@ function onSearch() {
     }
 }
 
+// Sets the text content of the error message back to blank
 function clearErrorMessage() {
     var errorMessage = document.querySelector('#error-message')
     errorMessage.textContent = ''
 }
 
+// Used to display an error message when there is no text input
 function displayErrorMessage(text) {
     var errorMessage = document.querySelector('#error-message')
     errorMessage.textContent = text
 
+    // Clears the error message after 2 seconds
     setTimeout(clearErrorMessage, 2000)
 }
 
