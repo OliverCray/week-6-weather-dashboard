@@ -92,6 +92,11 @@ function convertTemperature(valF) {
 // Gets current weather data from api to be displayed at the top of the page 
 function displayCurrentWeather(weatherData) {
     // Sets text content for temperature, wind speed and humidity
+    var iconCode = weatherData.current.weather[0].icon
+    console.log(iconCode)
+    var iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`
+
+    document.querySelector('.weather-icon').innerHTML = `<img id="icon" src="${iconUrl}" alt="Weather icon"></img>`
     document.querySelector('#val_temperature').textContent = `${weatherData.current.temp}°F | ${convertTemperature(weatherData.current.temp)}°C`
     document.querySelector('#val_wind-speed').textContent = `${weatherData.current.wind_speed} mph`
     document.querySelector('#val_humidity').textContent = `${weatherData.current.humidity}%`
