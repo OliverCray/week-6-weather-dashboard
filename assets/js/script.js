@@ -81,10 +81,18 @@ function lookupCity(search) {
         })
 }
 
+// Converts temperature from fahrenheit to celsius
+function convertTemperature(valF) {
+    var valF = parseFloat(valF)
+    var valC = (valF-32)/1.8
+    // Limits output to 2 decimal places
+    return valC.toFixed(2)
+}
+
 // Gets current weather data from api to be displayed at the top of the page 
 function displayCurrentWeather(weatherData) {
     // Sets text content for temperature, wind speed and humidity
-    document.querySelector('#val_temperature').textContent = `${weatherData.current.temp}°F`
+    document.querySelector('#val_temperature').textContent = `${weatherData.current.temp}°F | ${convertTemperature(weatherData.current.temp)}°C`
     document.querySelector('#val_wind-speed').textContent = `${weatherData.current.wind_speed} mph`
     document.querySelector('#val_humidity').textContent = `${weatherData.current.humidity}%`
 }
