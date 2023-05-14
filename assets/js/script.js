@@ -20,9 +20,16 @@ function onSearch() {
     }
 }
 
+function clearErrorMessage() {
+    var errorMessage = document.querySelector('#error-message')
+    errorMessage.textContent = ''
+}
+
 function displayErrorMessage(text) {
     var errorMessage = document.querySelector('#error-message')
     errorMessage.textContent = text
+
+    setTimeout(clearErrorMessage, 2000)
 }
 
 function lookupCity(search) {
