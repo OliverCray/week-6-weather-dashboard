@@ -37,7 +37,7 @@ aside {
     padding: 0.2rem;
 }
 
-#searchBtn {
+button {
     display: flex;
     justify-content: center;
     width: 100%;
