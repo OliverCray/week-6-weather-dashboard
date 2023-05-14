@@ -2,6 +2,9 @@ var WEATHER_API_BASE_URL = 'https://api.openweathermap.org'
 var WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1'
 var MAX_DAILY_FORECAST = 5
 
+var searchInput = document.querySelector('#city')
+var searchButton = document.querySelector('#searchBtn')
+
 // create an array of searched cities
 
 function onSearch() {
@@ -53,5 +56,6 @@ function lookupCity(search) {
 }
 
 
-// Add an event handler for the search button
+// Event handler for search button, performs onSearch when clicked
+searchButton.addEventListener('click', onSearch)
 
