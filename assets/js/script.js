@@ -10,6 +10,15 @@ var searchHistory = []
 function displaySearchHistory() {
     recentSearches.innerHTML = ''
 
+    if (searchHistory.length > 0) {
+        var clearButton = document.createElement('button')
+        clearButton.classList.add('deleteBtn')
+        clearButton.textContent = 'Clear History'
+
+        recentSearches.appendChild(clearButton) 
+    }
+    
+
     for (var i = 0; i < searchHistory.length; i++) {
         var city = searchHistory[i]
 
@@ -199,9 +208,14 @@ searchButton.addEventListener('click', onSearch)
 recentSearches.addEventListener('click', function(e) {
     var element = e.target
 
-    if (element.matches("li") === true) {
-        console.log(element.innerHTML)
+    if (element.matches('li') === true) {
+        console.log(`Search: ${element.innerHTML}`)
         lookupCity(element.innerHTML)
+    }
+
+    if (element.matches('button') === true) {
+        localStorage.removeItem('searchHistory')
+        displaySearchHistory()
     }
 })
 
