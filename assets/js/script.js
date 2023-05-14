@@ -105,7 +105,8 @@ function displayForecast(weatherData) {
     // Generate html for the forecast
     for (var i = 0; i < 5; i++) {
         var forecast = weatherData.daily[i]
-        var day = new Date(forecast.dt * 1000).toLocaleDateString('en-GB', {weekday: 'long'})
+        var options = {weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric'}
+        var day = new Date(forecast.dt * 1000).toLocaleDateString('en-GB', options)
         var temperature = `${forecast.temp.day}°F | ${convertTemperature(forecast.temp.day)}°C`
         var windSpeed = `${forecast.wind_speed} mph`
         var humidity = `${forecast.humidity} mph`
@@ -130,6 +131,10 @@ function displayForecast(weatherData) {
         // Append forecast so that it can be displayed
         forcecastSection.appendChild(cityForecast)
     }
+}
+
+function displayWeather(weatherData) {
+    var cityName = document.querySelector('#city-name')
 }
 
 // Event handler for search button, performs onSearch when clicked
