@@ -4,7 +4,7 @@ var WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1'
 var searchInput = document.querySelector('#city')
 var searchButton = document.querySelector('#searchBtn')
 
-// create an array of searched cities
+var searchHistory = []
 
 function onSearch() {
 
@@ -94,7 +94,7 @@ function displayCurrentWeather(weatherData) {
     // Sets text content for temperature, wind speed and humidity
     var iconCode = weatherData.current.weather[0].icon
     console.log(iconCode)
-    var iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`
+    var iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
 
     document.querySelector('.weather-icon').innerHTML = `<img id="icon" src="${iconUrl}" alt="Weather icon"></img>`
     document.querySelector('#val_temperature').textContent = `${weatherData.current.temp}°F | ${convertTemperature(weatherData.current.temp)}°C`
@@ -116,12 +116,17 @@ function displayForecast(weatherData) {
         var temperature = `${forecast.temp.day}°F | ${convertTemperature(forecast.temp.day)}°C`
         var windSpeed = `${forecast.wind_speed} mph`
         var humidity = `${forecast.humidity} mph`
+        var iconCode = forecast.weather[0].icon
+        var iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
 
         var cityForecast = document.createElement('div')
         cityForecast.classList.add('day')
         cityForecast.innerHTML = `<div class="weather-forecast">
             <div class="date">
                 <span>${day}</span>
+            </div>
+            <div class="weather-icon">
+                <img id="icon" src="${iconUrl}" alt="Weather icon"></img>
             </div>
             <div class="temperature">
                 <span>${temperature}</span>
