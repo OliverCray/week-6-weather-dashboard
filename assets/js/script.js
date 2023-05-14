@@ -48,9 +48,15 @@ function lookupCity(search) {
             console.log(data)
 
             // Pick the First city from the results
-            //var city = data[0];
             var lat = data[0].lat
             var lon = data[0].lon
+
+            var selectedData = {
+                name: data[0].name,
+                country: data[0].country,
+                lat: data[0].lat,
+                lon: data[0].lon
+            }
 
             // Get the Weather for the cached city
             var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`
@@ -64,12 +70,24 @@ function lookupCity(search) {
                     console.log(data)
 
                     // Display the Current Weather
+                    displayCurrentWeather(data)
 
                     // Display the 5 Day Forecast
+                    displayForecast(data)
                 })
+                
+                // Displays weather
+                displayWeather(selectedData)
         })
 }
 
+// Gets current weather data from api to be displayed at the top of the page 
+function displayCurrentWeather(weatherData) {
+    // Sets text content for temperature, wind speed and humidity
+    document.querySelector('#val_temperature').textContent = `${weatherData.current.temp}°F`
+    document.querySelector('#val_wind-speed').textContent = `${weatherData.current.wind_speed} mph`
+    document.querySelector('#val_humidity').textContent = `${weatherData.current.humidity}%`
+}
 
 // Event handler for search button, performs onSearch when clicked
 searchButton.addEventListener('click', onSearch)
