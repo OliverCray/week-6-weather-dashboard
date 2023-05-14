@@ -1,6 +1,5 @@
 var WEATHER_API_BASE_URL = 'https://api.openweathermap.org'
 var WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1'
-var MAX_DAILY_FORECAST = 5
 
 var searchInput = document.querySelector('#city')
 var searchButton = document.querySelector('#searchBtn')
@@ -95,6 +94,42 @@ function displayCurrentWeather(weatherData) {
     document.querySelector('#val_temperature').textContent = `${weatherData.current.temp}°F | ${convertTemperature(weatherData.current.temp)}°C`
     document.querySelector('#val_wind-speed').textContent = `${weatherData.current.wind_speed} mph`
     document.querySelector('#val_humidity').textContent = `${weatherData.current.humidity}%`
+}
+
+// Gets weather forecast data from api to be displayed under 5-Day Forecast
+function displayForecast(weatherData) {
+    // Clear previous forecast
+    var forcecastSection = document.querySelector('#days')
+    forcecastSection.innerHTML = ''
+
+    // Generate html for the forecast
+    for (var i = 0; i < 5; i++) {
+        var forecast = weatherData.daily[i]
+        var day = new Date(forecast.dt * 1000).toLocaleDateString('en-GB', {weekday: 'long'})
+        var temperature = `${forecast.temp.day}°F | ${convertTemperature(forecast.temp.day)}°C`
+        var windSpeed = `${forecast.wind_speed} mph`
+        var humidity = `${forecast.humidity} mph`
+
+        var cityForecast = document.createElement('div')
+        cityForecast.classList.add('day')
+        cityForecast.innerHTML = `<div class="weather-forecast">
+            <div class="date">
+                <span>${day}</span>
+            </div>
+            <div class="temperature">
+                <span>${temperature}</span>
+            </div>
+            <div class="wind-speed">
+                <span>${windSpeed}</span>
+            </div>
+            <div class="humidity">
+                <span>${humidity}</span>
+            </div>
+        </div>`
+
+        // Append forecast so that it can be displayed
+        forcecastSection.appendChild(cityForecast)
+    }
 }
 
 // Event handler for search button, performs onSearch when clicked
