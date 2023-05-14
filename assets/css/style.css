@@ -1,7 +1,7 @@
 :root {
-    --bg-colour: #FAF6F6;
-    --bg-header: #F25757;
-    --text-colour: #1C2321;
+    --bg-colour: rgb(171, 198, 199);
+    --bg-header: #f28357;
+    --text-colour: #FAF6F6;
     --text-header: #FAF6F6;
 }
 
@@ -66,7 +66,7 @@ section {
 .weather-city {
     font-size: 1.6rem;
     margin-bottom: -1.5rem;
-}
+}   
 
 #weather-forecast {
     margin-top: 0.5rem;
