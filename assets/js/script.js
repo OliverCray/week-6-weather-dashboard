@@ -6,17 +6,38 @@ var searchButton = document.querySelector('#searchBtn')
 
 var searchHistory = []
 
+function init() {
+    // Get stored search history from localStorage
+    var storedHistory = JSON.parse(localStorage.getItem("searchHistory"));
+  
+    // If searches were retrieved from localStorage, update the search history array to it
+    if (storedHistory !== null) {
+      searchHistory = storedHistory;
+    }
+  
+    // This is a helper function that will render todos to the DOM
+    displaySearchHistory();
+}
+
+function storeSearchHistory() {
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+}
+
 function onSearch() {
 
-    // Assign to city entered by the user to the variable userSearch
+    // Assign city entered by the user to the variable userSearch
     var userSearch = searchInput.value
 
     // Display an error message if there's no input, otherwise search for that city's weather data
     if (userSearch === '') {
         displayErrorMessage('Please enter a city name')
-    } else {
-        lookupCity(userSearch)
     }
+    lookupCity(userSearch)
+    searchHistory.push(userSearch)
+    searchInput.value = ''
+
+    storeSearchHistory()
+    displaySearchHistory()
 }
 
 // Sets the text content of the error message back to blank
@@ -156,3 +177,4 @@ function displayCity(weatherData) {
 // Event handler for search button, performs onSearch when clicked
 searchButton.addEventListener('click', onSearch)
 
+init()
