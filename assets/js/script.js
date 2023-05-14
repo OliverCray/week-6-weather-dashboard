@@ -3,8 +3,26 @@ var WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1'
 
 var searchInput = document.querySelector('#city')
 var searchButton = document.querySelector('#searchBtn')
+var recentSearches = document.querySelector('#recent-searches')
 
 var searchHistory = []
+
+function displaySearchHistory() {
+    recentSearches.innerHTML = ''
+
+    for (var i = 0; i < searchHistory.length; i++) {
+        var city = searchHistory[i]
+
+        var searchList = document.createElement('ul')
+
+        var recentSearch = document.createElement('li')
+        recentSearch.textContent = city
+
+        searchList.appendChild(recentSearch)
+        recentSearches.appendChild(searchList)
+    }
+
+}
 
 function init() {
     // Get stored search history from localStorage
@@ -19,6 +37,7 @@ function init() {
     displaySearchHistory();
 }
 
+// Stores searches in local storage
 function storeSearchHistory() {
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
 }
@@ -176,5 +195,7 @@ function displayCity(weatherData) {
 
 // Event handler for search button, performs onSearch when clicked
 searchButton.addEventListener('click', onSearch)
+
+
 
 init()
