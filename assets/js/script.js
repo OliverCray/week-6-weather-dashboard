@@ -76,8 +76,8 @@ function lookupCity(search) {
                     displayForecast(data)
                 })
                 
-                // Displays weather
-                displayWeather(selectedData)
+                // Displays city
+                displayCity(selectedData)
         })
 }
 
@@ -134,7 +134,8 @@ function displayForecast(weatherData) {
     }
 }
 
-function displayWeather(weatherData) {
+// Displays City name, state, country and date at the top of the page
+function displayCity(weatherData) {
     var cityName = document.querySelector('#city-name')
     var options = {weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric'}
     var day = new Date().toLocaleDateString('en-GB', options)
