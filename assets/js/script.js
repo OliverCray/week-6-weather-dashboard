@@ -20,6 +20,11 @@ function onSearch() {
     }
 }
 
+function displayErrorMessage(text) {
+    var errorMessage = document.querySelector('#error-message')
+    errorMessage.textContent = text
+}
+
 function lookupCity(search) {
 
     // Lookup the city to get the Lat/Lon
