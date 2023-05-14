@@ -52,6 +52,7 @@ function lookupCity(search) {
 
             var selectedData = {
                 name: data[0].name,
+                state: data[0].state,
                 country: data[0].country,
                 lat: data[0].lat,
                 lon: data[0].lon
@@ -135,6 +136,10 @@ function displayForecast(weatherData) {
 
 function displayWeather(weatherData) {
     var cityName = document.querySelector('#city-name')
+    var options = {weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric'}
+    var day = new Date().toLocaleDateString('en-GB', options)
+
+    cityName.innerHTML = `${weatherData.name}, ${weatherData.state}, ${weatherData.country}<br>${day}`
 }
 
 // Event handler for search button, performs onSearch when clicked
