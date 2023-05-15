@@ -1,5 +1,5 @@
 :root {
-    --bg-primary: rgb(233, 236, 236);
+    --bg-primary: #e9ecec;
     --bg-secondary: #b38eae;
     --bg-button: #b38eae;
     --bg-button-clicked: #a07a9b;
@@ -83,8 +83,9 @@ section {
 }
 
 #weather {
-    border: solid black 1px;
-    border-radius: 5px;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: 10px;
     padding-left: 1rem;
     padding-bottom: 0.5rem;
 }
