@@ -205,6 +205,13 @@ function displayCity(weatherData) {
 // Event handler for search button, performs onSearch when clicked
 searchButton.addEventListener('click', onSearch)
 
+// Allows user to press enter in the search box to perform onSearch function
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        onSearch()
+    }
+})
+
 // Event handler for recent searches section
 recentSearches.addEventListener('click', function(e) {
     var element = e.target
