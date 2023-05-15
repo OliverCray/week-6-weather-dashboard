@@ -205,16 +205,20 @@ function displayCity(weatherData) {
 // Event handler for search button, performs onSearch when clicked
 searchButton.addEventListener('click', onSearch)
 
+// Event handler for recent searches section
 recentSearches.addEventListener('click', function(e) {
     var element = e.target
 
+    // Executes lookupCity function when a previous search is clicked
     if (element.matches('li') === true) {
         console.log(`Search: ${element.innerHTML}`)
         lookupCity(element.innerHTML)
     }
 
+    // Clears local storage when the clear button is clicked
     if (element.matches('button') === true) {
         localStorage.removeItem('searchHistory')
+        searchHistory = []
         displaySearchHistory()
     }
 })
