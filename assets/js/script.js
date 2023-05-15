@@ -42,7 +42,7 @@ function init() {
       searchHistory = storedHistory;
     }
   
-    // This is a helper function that will render todos to the DOM
+    // This is a helper function that will render search history to the DOM
     displaySearchHistory();
 }
 
@@ -125,7 +125,7 @@ function lookupCity(search) {
                     displayForecast(data)
                 })
                 
-                // Displays city
+                // Displays city name and date
                 displayCity(selectedData)
         })
 }
@@ -158,7 +158,7 @@ function displayForecast(weatherData) {
     forcecastSection.innerHTML = ''
 
     // Generate html for the forecast
-    for (var i = 0; i < 5; i++) {
+    for (var i = 1; i < 6; i++) {
         var forecast = weatherData.daily[i]
         var options = {weekday: 'short', day: 'numeric', month: 'numeric', year: 'numeric'}
         var day = new Date(forecast.dt * 1000).toLocaleDateString('en-GB', options)
