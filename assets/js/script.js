@@ -160,7 +160,7 @@ function displayForecast(weatherData) {
     // Generate html for the forecast
     for (var i = 0; i < 5; i++) {
         var forecast = weatherData.daily[i]
-        var options = {weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric'}
+        var options = {weekday: 'short', day: 'numeric', month: 'numeric', year: 'numeric'}
         var day = new Date(forecast.dt * 1000).toLocaleDateString('en-GB', options)
         var temperature = `${forecast.temp.day}°F | ${convertTemperature(forecast.temp.day)}°C`
         var windSpeed = `${forecast.wind_speed} mph`
