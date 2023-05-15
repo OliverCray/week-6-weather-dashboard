@@ -61,10 +61,14 @@ function onSearch() {
         displayErrorMessage('Please enter a city name')
     }
     lookupCity(userSearch)
-    searchHistory.push(userSearch)
     searchInput.value = ''
 
-    storeSearchHistory()
+    // Only add the search to local storage if it doesn't already exist in local storage
+    if (searchHistory.indexOf(userSearch) == -1) {
+        searchHistory.push(userSearch)
+        storeSearchHistory()
+    }
+    
     displaySearchHistory()
 }
 
