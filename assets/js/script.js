@@ -170,7 +170,7 @@ function displayForecast(weatherData) {
         var windSpeed = `${forecast.wind_speed} mph`
         var humidity = `${forecast.humidity} mph`
         var iconCode = forecast.weather[0].icon
-        var iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+        var iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`
 
         var cityForecast = document.createElement('div')
         cityForecast.classList.add('day')
