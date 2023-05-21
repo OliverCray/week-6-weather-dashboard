@@ -147,7 +147,7 @@ function displayCurrentWeather(weatherData) {
     // Sets text content for temperature, wind speed and humidity
     var iconCode = weatherData.current.weather[0].icon
     console.log(iconCode)
-    var iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+    var iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`
 
     document.querySelector('.weather-icon').innerHTML = `<img id="icon" src="${iconUrl}" alt="Weather icon"></img>`
     document.querySelector('#val_temperature').textContent = `${weatherData.current.temp}°F | ${convertTemperature(weatherData.current.temp)}°C`
