@@ -41,4 +41,4 @@ THEN I am again presented with current and future conditions for that city
 
 ## Deployed Webpage
 
-The published page is available here:
+The published page is available here: https://olivercray.github.io/week-6-weather-dashboard/
